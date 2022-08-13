@@ -20,9 +20,6 @@ func set_max_hearts(value):
 func _ready():
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = max_hearts
-	
-	print(hearts)
-	print(max_hearts)
 	heartsUIEmpty.rect_size.x = hearts * 15
 	heartsUIFull.rect_size.x = hearts * 15
 	PlayerStats.connect("health_changed", self, "set_hearts")

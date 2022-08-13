@@ -19,5 +19,3 @@ func set_health(value):
 
 func _ready():
 	self.health = max_health
-	print("max health player:", max_health)
-	print("health player:", health)
