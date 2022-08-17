@@ -80,7 +80,7 @@ position = Vector2( 0, -14.2 )
 shape = SubResource( 8 )
 
 [node name="Stats" parent="." instance=ExtResource( 5 )]
-max_health = 2
+max_health = 4
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 6 )]
 

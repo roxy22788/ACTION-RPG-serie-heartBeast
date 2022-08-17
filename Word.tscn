@@ -597,7 +597,7 @@ position = Vector2( 198, 25 )
 position = Vector2( 25, 160 )
 
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 493, 103 )
+position = Vector2( 62, 54 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

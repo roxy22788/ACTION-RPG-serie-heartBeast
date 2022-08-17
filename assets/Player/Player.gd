@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const PlayerHurtSound = preload("res://assets/Player/PlayerHurtSound.tscn")
+
 const ACCELERATION = 10
 const MAX_SPEED = 150
 const FRICTION = 8
@@ -89,3 +91,5 @@ func _on_HurtBox_area_entered(area):
 	stats.health -= 1
 	hurtbox.start_invencibilyty(0.5)
 	hurtbox.create_hit_effect()
+	var playerHurtSound = PlayerHurtSound.instance()
+	get_tree().current_scene.add_child(playerHurtSound)
