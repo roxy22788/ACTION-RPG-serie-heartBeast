@@ -58,15 +58,12 @@ radius = 6.0
 [node name="Bat" type="KinematicBody2D"]
 collision_layer = 16
 script = ExtResource( 4 )
-ACCELERATION = null
-MAX_SPEED = null
-FRICTION = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -12 )
 frames = SubResource( 6 )
 animation = "fly"
-frame = 4
+frame = 1
 playing = true
 
 [node name="ShawdowSprite" type="Sprite" parent="."]
