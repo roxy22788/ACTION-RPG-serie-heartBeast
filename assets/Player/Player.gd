@@ -24,8 +24,10 @@ onready var animationTree = $AnimationTree
 onready var animationState = $AnimationTree.get("parameters/playback")
 onready var swordHitBox = $HitBoxPivot/SwordHitBox
 onready var hurtbox = $HurtBox
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
 func _ready():
+	randomize()
 	stats.connect("no_health", self, "queue_free")
 	animationTree.active = true
 	swordHitBox.knockback_vector = roll_vector
@@ -88,8 +90,16 @@ func attack_animation_finished():
 	state = MOVE
 
 func _on_HurtBox_area_entered(area):
-	stats.health -= 1
+	stats.health -= area.damage
 	hurtbox.start_invencibilyty(0.5)
 	hurtbox.create_hit_effect()
 	var playerHurtSound = PlayerHurtSound.instance()
 	get_tree().current_scene.add_child(playerHurtSound)
+
+
+func _on_HurtBox_invencibilyty_started():
+	blinkAnimationPlayer.play("Start")
+
+
+func _on_HurtBox_invencibilyty_ended():
+	blinkAnimationPlayer.play("Stop")

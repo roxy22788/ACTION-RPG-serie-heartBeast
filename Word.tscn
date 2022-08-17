@@ -599,6 +599,12 @@ position = Vector2( 25, 160 )
 [node name="Bat" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 62, 54 )
 
+[node name="Bat" parent="YSort/Bat" instance=ExtResource( 7 )]
+position = Vector2( 84, -33 )
+
+[node name="Bat2" parent="YSort/Bat" instance=ExtResource( 7 )]
+position = Vector2( 187, -4 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 8 )]
