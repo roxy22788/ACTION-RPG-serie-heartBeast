@@ -21,6 +21,7 @@ onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var hurtbox = $HurtBox
 onready var softCollision = $SoftCollision
+onready var wanderController = $WanderController
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 8)
@@ -30,6 +31,9 @@ func _physics_process(delta):
 		IDLE:
 			velocity = velocity.move_toward(Vector2.ZERO, 1)
 			seek_player()
+			
+			if wanderController.get_time_left() == 0:
+				state = pick_random_state([IDLE, WANDER])
 			
 		WANDER:
 			pass
@@ -51,6 +55,10 @@ func _physics_process(delta):
 func seek_player():
 	if playerDetectionZone.can_see_player():
 		state = CHASE
+		
+func pick_random_state(state_list):
+	state_list.shuffle()
+	return state_list.pop_front()
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
